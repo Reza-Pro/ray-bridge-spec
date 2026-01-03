@@ -93,3 +93,5 @@ To preserve clarity and trust, Ray Bridge intentionally limits its scope. Any fe
 ## Evolution
 
 This specification may evolve, but the core principles defined in this document are considered stable and foundational.
+
+Ray Bridge exposes services by domain, not by source.
