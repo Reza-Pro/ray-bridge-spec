@@ -100,3 +100,6 @@ No randomness, personalization, or paid prioritization is permitted.
 
 New intent types may be introduced in future versions.
 Existing intent types MUST remain backward compatible.
+
+service_domain (required)
+
