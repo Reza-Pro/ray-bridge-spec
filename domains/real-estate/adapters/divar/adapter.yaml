@@ -1,0 +1,59 @@
+adapter:
+  name: divar-real-estate
+  domain: real-estate
+  version: 0.2
+  status: active
+
+source:
+  provider: divar
+  base_url: https://api.sarenakha.ir
+  description: Real estate listings adapter using Divar API mirrored on Sarenakha
+
+input_schema:
+  required:
+    - intent
+    - filters
+  filters:
+    location: string
+    price_min: number
+    price_max: number
+    rooms: number
+    area_min: number
+    area_max: number
+    category: string
+
+request_mapping:
+  endpoint: /divar/search
+  method: GET
+  query_params:
+    city: filters.location
+    min_price: filters.price_min
+    max_price: filters.price_max
+    rooms: filters.rooms
+    min_area: filters.area_min
+    max_area: filters.area_max
+    category: filters.category
+
+output_schema:
+  type: array
+  fields:
+    id: string
+    title: string
+    price: number
+    location: string
+    area: number
+    rooms: number
+    url: string
+    images: array
+    source: string
+
+response_mapping:
+  id: data.items[].id
+  title: data.items[].title
+  price: data.items[].price
+  location: data.items[].district
+  area: data.items[].area
+  rooms: data.items[].rooms
+  url: data.items[].url
+  images: data.items[].images
+  source: static:divar
