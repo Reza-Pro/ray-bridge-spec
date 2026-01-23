@@ -1,0 +1,80 @@
+openapi: 3.0.3
+info:
+  title: Ray Bridge Public Intent API
+  version: 0.1.0
+  description: |
+    Domain-driven intent API for AI agents.
+servers:
+  - url: https://api.raybridge.local
+paths:
+  /intent:
+    post:
+      summary: Submit an intent to Ray Bridge
+      operationId: submitIntent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntentRequest'
+      responses:
+        '200':
+          description: Successful intent resolution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntentResponse'
+        '400':
+          description: Invalid intent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    IntentRequest:
+      type: object
+      required:
+        - intent
+        - service_domain
+      properties:
+        intent:
+          type: string
+          example: discover
+        service_domain:
+          type: string
+          example: real-estate
+        query:
+          type: object
+          additionalProperties: true
+    IntentResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        domain:
+          type: string
+          example: real-estate
+        results:
+          type: array
+          items:
+            type: object
+        meta:
+          type: object
+          properties:
+            latency_ms:
+              type: number
+            result_count:
+              type: number
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        code:
+          type: string
+          example: INVALID_INTENT
+        message:
+          type: string
