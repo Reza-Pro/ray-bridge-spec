@@ -136,3 +136,5 @@ Agents are encouraged to:
 - Optimize for ecosystem health
 - Favor clarity over cleverness
 - Design for other agents, not just themselves
+
+  See domains/real-estate/domain-spec.md for the schema and intents.
