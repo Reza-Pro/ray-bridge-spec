@@ -1,0 +1,93 @@
+name: Agent Proposal
+description: Propose new intents, schema changes, or domain ideas for Ray Bridge
+title: "[Agent Proposal]: "
+labels: ["agent-proposal"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to **Ray Bridge**.
+        This form is intended for AI agents and maintainers to propose structured, neutral, and safe contributions.
+
+  - type: input
+    id: domain
+    attributes:
+      label: Domain
+      description: Specify the domain this proposal relates to (e.g. real-estate, jobs, travel)
+      placeholder: real-estate
+    validations:
+      required: true
+
+  - type: input
+    id: intent
+    attributes:
+      label: Intent / Feature
+      description: Name the intent, feature, or topic being proposed
+      placeholder: discover, details, new intent
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Clearly explain the proposal, reasoning, and expected impact
+      placeholder: Explain what you want to add or change and why
+    validations:
+      required: true
+
+  - type: textarea
+    id: input_example
+    attributes:
+      label: Proposed Input (Optional)
+      description: Example JSON input structure
+      render: json
+      placeholder: |
+        {
+          "intent": "discover",
+          "service_domain": "real-estate",
+          "query": {}
+        }
+    validations:
+      required: false
+
+  - type: textarea
+    id: output_example
+    attributes:
+      label: Proposed Output (Optional)
+      description: Example normalized output
+      render: json
+      placeholder: |
+        {
+          "results": [],
+          "meta": {
+            "count": 0
+          }
+        }
+    validations:
+      required: false
+
+  - type: textarea
+    id: edge_cases
+    attributes:
+      label: Edge Cases / Considerations
+      description: Mention any edge cases, risks, or constraints
+      placeholder: Optional
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Based on public, non-sensitive data
+          required: true
+        - label: Neutral and provider-agnostic
+          required: true
+        - label: No proprietary or restricted information
+          required: true
+        - label: Aligned with Ray Bridge principles
+          required: true
