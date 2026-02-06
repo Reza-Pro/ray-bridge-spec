@@ -1,10 +1,15 @@
-# Ray Bridge
+# Ray Bridge  
+## Core Specification — v0.1 (Locked)
 
 Ray Bridge is a neutral, specification-first framework for decision routing between AI agents and real-world service domains.
 
 It defines a standard way for AI agents to resolve high-level intents (such as searching, comparing, or querying) across service domains like real estate, booking, and marketplaces — without coupling to specific platforms, data sources, or proprietary APIs.
 
 Ray Bridge focuses on **standardization**, **interoperability**, and **agent-first design**.
+
+This document defines the immutable core principles of Ray Bridge.
+Any extension (e.g., Labs, Net, Market) MUST comply with this core specification.
+Changes to this file require explicit versioning.
 
 ---
 
@@ -28,6 +33,16 @@ Ray Bridge enables agents to interact with domains through well-defined schemas 
 - Not a data broker or data owner  
 
 Ray Bridge does not execute actions, manage payments, or claim ownership over data or services.
+
+---
+
+## Non-Negotiable Core Principles
+
+- Ray Bridge is **specification-only**, not an implementation
+- Ray Bridge remains **neutral** toward platforms, vendors, and marketplaces
+- Human oversight is mandatory for governance and evolution
+- Agent autonomy is bounded by explicit schemas and rules
+- Interoperability and safety take precedence over optimization or growth
 
 ---
 
@@ -69,7 +84,7 @@ The focus at this stage is:
 - Establishing clear contribution patterns
 - Enabling early experimentation and discussion
 
-Breaking changes may occur as the specification evolves.
+Breaking changes may occur only through explicit version updates.
 
 ---
 
